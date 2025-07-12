@@ -1,14 +1,11 @@
 # MiniDream
 
----
 > Implementing Sota CV, NLP, Speech and Multimodal Models with PyTorch
 
----
 ## 🌟 Features
 - Pytorch
 - Lightning
 
----
 ## 📦 Installation
 ```bash
 git clone https://github.com/lemonmindyes/MiniDream.git
@@ -16,17 +13,17 @@ cd your_project
 pip install -r requirements.txt
 ```
 
----
 ## 🚀 Usage
 ```bash
 python train_mini_(model).py # model name
 ```
 
----
 ##  📚 Model
 - [x] [VQ-VAE](https://arxiv.org/abs/1711.00937)
+- [ ] [VIT](https://arxiv.org/abs/2010.11929)
 
 ### VQ-VAE
+<img src = './imgs/VQVAE.jpg' width = '500px'></img>
 ```python
 import torch
 from mini_vqvae import Config, VQVAE
