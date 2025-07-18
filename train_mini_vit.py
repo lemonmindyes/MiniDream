@@ -30,16 +30,16 @@ if __name__ == '__main__':
         transforms.Resize((32, 32)),
         transforms.ToTensor(),
     ])
-    train_dataset = CIFAR10(root='data', train=True, transform=transform, download=True)
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_dataset = CIFAR10(root='data', train=False, transform=transform, download=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    train_dataset = CIFAR10(root = 'data', train = True, transform = transform, download = True)
+    train_loader = DataLoader(train_dataset, batch_size = batch_size, shuffle = True)
+    test_dataset = CIFAR10(root = 'data', train = False, transform = transform, download = True)
+    test_loader = DataLoader(test_dataset, batch_size = batch_size, shuffle = False)
 
     loss_func = nn.CrossEntropyLoss()
-    opt = torch.optim.Adam(model.parameters(), lr=lr)
+    opt = torch.optim.Adam(model.parameters(), lr = lr)
     lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(opt,
-                                                              T_max=epoch * len(train_loader),
-                                                              eta_min=lr / 100)
+                                                              T_max = epoch * len(train_loader),
+                                                              eta_min = lr / 100)
 
     for e in range(epoch):
         model.train()
@@ -71,6 +71,4 @@ if __name__ == '__main__':
             total_acc += (pred == y).sum().item()
             total_num += x.shape[0]
         print(f'epoch:{e + 1}/{epoch} accuracy:{total_acc / total_num:.4f}')
-
-
     torch.save(model.state_dict(), 'vit.pt')
